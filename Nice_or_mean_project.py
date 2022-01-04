@@ -11,7 +11,7 @@
 
 
 
-
+import os
 
 def start(nice=0,mean=0,name=""):
     # get user's name
@@ -50,7 +50,7 @@ def nice_mean(nice,mean,name):
         if pick == "n":
             print("\nThe stranger walks away smiling...")
             from PIL import Image
-            im = Image.open("Pictures\Smiley_Face.jpg")
+            im = Image.open("happy.jpg")
             print(im.format, im.size, im.mode)
             im.show()
             nice = (nice + 1)
