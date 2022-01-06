@@ -1,12 +1,11 @@
 
-
 #parent class
 class User:
     name= "Cody"
     email= "cody@gmail.com"
     password= "123456"
 
-    def getLoginImfo(self):
+    def getLoginInfo(self):
         entry_name = input("Enter your name: ")
         entry_email = input("Enter your email: ")
         entry_password = input("Enter your password: ")
@@ -24,7 +23,7 @@ class Employee(User):
     #This is the same method in the parent class
     #The diffrence is that, instead of using password , we're using the pin
 
-    def getLoginImfo(self):
+    def getLoginInfo(self):
         entry_name = input("Enter your name: ")
         entry_email = input("Enter your email: ")
         entry_pin = input("Enter your pin: ")
@@ -33,7 +32,7 @@ class Employee(User):
         else:
             print("The password or email is incorrect.")
 
-class vendor(User):
+class Vendor(User):
     vendor_type = "Food"
     vendor_company = "Pepsi"
     vendor_id = "1456_PI"
@@ -41,7 +40,7 @@ class vendor(User):
     #This is the same method in the parent class
     #The diffrence is that, instead of using password , we're using the id.
 
-    def getLoginImfo(self):
+    def getLoginInfo(self):
         entry_name = input("Enter your name: ")
         entry_email = input("Enter your email: ")
         entry_pin = input("Enter your pin: ")
@@ -53,20 +52,12 @@ class vendor(User):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
+    customer = User()
+    customer.getLoginInfo()
+
+    manager = Employes()
+    manager.getLoginInfo()
+
+    worker = Vendor()
+    worker.getLoginInfo()
