@@ -23,12 +23,13 @@ def Start_app():
 #Then it imports them into the tables in SQL
 def get_files():
 
-    a = os.listdir ()
+    fileList = ('information.docx', 'Hello.txt', 'myImage.png',
+                'myMovie.mpg', 'World.txt', 'data.pdf', 'myPhoto.jpg')
     conn = sqlite3.connect('project.db')
     with conn:
         cur = conn.cursor()
 
-        for i in os.listdir():
+        for i in fileList:
             if i.endswith('.txt'):
                 cur.execute("INSERT INTO tbl_project(file_name) VALUES(?)",(i,))
         conn.commit()
