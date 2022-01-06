@@ -10,7 +10,7 @@ class User:
         entry_name = input("Enter your name: ")
         entry_email = input("Enter your email: ")
         entry_password = input("Enter your password: ")
-        if (entry_email == self.email and entry_password == self.password):
+        if (entry_email == self.email and sel.entry_password == self.password):
             print("Welcome back, {}!".format(entry_name))
         else:
             print("The password or email is incorrect.")
@@ -28,10 +28,10 @@ class Employee(User):
         entry_name = input("Enter your name: ")
         entry_email = input("Enter your email: ")
         entry_pin = input("Enter your pin: ")
-        if (entry_email == self.email and entry_password == self.password):
+        if (entry_email == self.email and self.entry_pin == self.pin):
             print("Welcome back, {}!".format(entry_name))
         else:
-            print("The password or email is incorrect."
+            print("The password or email is incorrect.")
 
 class vendor(User):
     vendor_type = "Food"
@@ -45,7 +45,7 @@ class vendor(User):
         entry_name = input("Enter your name: ")
         entry_email = input("Enter your email: ")
         entry_pin = input("Enter your pin: ")
-        if (entry_email == self.email and entry_password == self.password):
+        if (entry_email == self.email and self.vendor_id == self.id):
             print("Welcome back, {}!".format(entry_name))
         else:
             print("The password or email is incorrect."
