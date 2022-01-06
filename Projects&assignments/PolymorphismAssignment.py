@@ -10,7 +10,7 @@ class User:
         entry_name = input("Enter your name: ")
         entry_email = input("Enter your email: ")
         entry_password = input("Enter your password: ")
-        if (entry_email == self.email and sel.entry_password == self.password):
+        if (entry_email == self.email and self.entry_password == self.password):
             print("Welcome back, {}!".format(entry_name))
         else:
             print("The password or email is incorrect.")
@@ -48,7 +48,7 @@ class vendor(User):
         if (entry_email == self.email and self.vendor_id == self.id):
             print("Welcome back, {}!".format(entry_name))
         else:
-            print("The password or email is incorrect."
+            print("The password or email is incorrect.")
 
 
 

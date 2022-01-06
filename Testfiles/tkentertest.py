@@ -14,17 +14,21 @@ class ParentWindow(Frame):
 
         self.varFName = StringVar()
         self.varLName = StringVar()
-        self.varFName.set('Bob')
-        self.varLName.set('Smith')
 
-        print(self.varFName.get())
-        print(self.varLName.get())
+        self.lblFName = Label(self.master,text='First Name: ', font=("Helvetica", 16), fg='black', bg='darkgray' )
+        self.lblFName.grid(row=0, column=0,padx=(30,0),pady=(30,0))
+        
+        self.lblLName = Label(self.master,text='Last Name: ', font=("Helvetica", 16), fg='black', bg='darkgray' )
+        self.lblLName.grid(row=1, column=0,padx=(30,0),pady=(30,0))
 
         self.txtFName = Entry(self.master, text=self.varFName, font=("Helvetica", 16), fg='black', bg='lightblue')
-        self.txtFName.pack()
+        self.txtFName.grid(row=0, column=1,padx=(30,0),pady=(30,0))
 
         self.txtLName = Entry(self.master, text=self.varLName, font=("Helvetica", 16), fg='black', bg='lightblue')
-        self.txtLName.pack()
+        self.txtLName.grid(row=1, column=1,padx=(30,0),pady=(30,0))
+
+        self.btnSubmit = Button(self.master, text="Submit", width=10, height=2)
+        self.btnSubmit.grid(row=12, column=1,padx=(0,0),pady=(30,0), sticky=NE)
 
 
 
