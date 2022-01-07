@@ -9,7 +9,7 @@ class User:
         entry_name = input("Enter your name: ")
         entry_email = input("Enter your email: ")
         entry_password = input("Enter your password: ")
-        if (entry_email == self.email and self.entry_password == self.password):
+        if (entry_email == self.email and entry_password == self.password):
             print("Welcome back, {}!".format(entry_name))
         else:
             print("The password or email is incorrect.")
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     customer = User()
     customer.getLoginInfo()
 
-    manager = Employes()
+    manager = Employee()
     manager.getLoginInfo()
 
     worker = Vendor()
