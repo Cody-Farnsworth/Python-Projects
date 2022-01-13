@@ -10,12 +10,10 @@ def home(request):
     content = {'form': form}
     return render(request, 'checkbook/index.html', content)
 
-def create_account(request):
-    return render(request, 'checkbook/CreateNewAccount.html')
 
 def balance(request, pk):
-    account = get_object_or_404(Account, pk=pk)
-    transaction = Transaction.Transactions.filter(account = pk)
+    account = get_object_or_404(Account, pk = pk)
+    transactions = Transaction.Transactions.filter(account = pk)
     current_total = account.initial_deposit
     table_contents = { }
     for t in transactions:
@@ -25,25 +23,27 @@ def balance(request, pk):
         else:
             current_total -= t.amount
             table_contents.update({t: current_total})
-    content = {'account': account, 'table_contents': table_contents, 'balance': balance}
+    content = {'account': account, 'table_contents': table_contents, 'balance': current_total}
     return render(request, 'checkbook/BalanceSheet.html', content)
 
 
 def create_account(request):
     form = AccountForm(data=request.POST or None)
     if request.method == 'POST':
-        form.save()
-        return redirect('index')
+        if form.is_valid():
+            form.save()
+            return redirect('index')
     content = {'form': form}
     return render(request, 'checkbook/CreateNewAccount.html', content)
 
 def transaction(request):
     form = TransactionForm(data=request.POST or None)
     if request.method == 'POST':
-        form.save()
-        pk = request.POST['account']
-        form.save()
-        return balance(request, pk)
+        if form.is_valid():
+            form.save()
+            pk = request.POST['account']
+            form.save()
+            return balance(request, pk)
     content = {'form': form}
     return render(request, 'checkbook/AddTransaction.html', content)
 
